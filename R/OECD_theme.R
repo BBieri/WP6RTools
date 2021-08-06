@@ -19,6 +19,8 @@
 #' @examples
 #' library(ggplot2)
 #' library(dplyr)
+#' library(extrafont) # Required for Arial Narrow font
+#' loadfonts()
 #'
 #' # seminal scatterplot
 #'
@@ -187,7 +189,6 @@ theme_oecd <- function(base_family = "Arial Narrow",
 #' @param axis_title_family,axis_title_face,axis_title_size axis title font family, face and size
 #' @param axis_title_just axis title font justification, one of `[blmcrt]`
 #' @param plot_margin plot margin (specify with `ggplot2::margin()`)
-#' @param grid_col,axis_col grid & axis colors; both default to `#cccccc`
 #' @param grid panel grid (`TRUE`, `FALSE`, or a combination of `X`, `x`, `Y`, `y`)
 #' @param axis_text_size font size of axis text
 #' @param axis add x or y axes? `TRUE`, `FALSE`, "`xy`"
@@ -196,6 +197,8 @@ theme_oecd <- function(base_family = "Arial Narrow",
 #' @examples
 #' library(ggplot2)
 #' library(dplyr)
+#' library(extrafont)
+#' loadfonts()
 #'
 #' # seminal scatterplot
 #'
@@ -249,7 +252,7 @@ theme_oecd_dark <- function(base_family = "Arial Narrow",
                              ticks = FALSE)
 {
   grid_col <- axis_col <- "#464950"
-  subtitle_col <- ft_text_col
+  subtitle_col <- oecd_palette$oecd_yellow
   def_fore <- "#617a89"
   ggplot2::update_geom_defaults("point", list(colour = def_fore))
   ggplot2::update_geom_defaults("line", list(colour = def_fore))
@@ -263,7 +266,7 @@ theme_oecd_dark <- function(base_family = "Arial Narrow",
                                             fill = def_fore))
   ggplot2::update_geom_defaults("col", list(colour = def_fore,
                                             fill = def_fore))
-  ggplot2::update_geom_defaults("text", list(colour = ft_text_col))
+  ggplot2::update_geom_defaults("text", list(colour = "#929299"))
   ret <- ggplot2::theme_minimal(base_family = base_family,
                                 base_size = base_size)
   ret <- ret + theme(legend.background = element_blank())
@@ -367,11 +370,10 @@ theme_oecd_dark <- function(base_family = "Arial Narrow",
     theme(plot.background = element_rect(fill = bkgrnd,
                                          color = bkgrnd)) + theme(panel.background = element_rect(fill = bkgrnd,
                                                                                                   color = bkgrnd)) + theme(rect = element_rect(fill = bkgrnd,
-                                                                                                                                               color = bkgrnd)) + theme(text = element_text(color = ft_text_col)) +
-    theme(axis.text = element_text(color = ft_text_col)) +
-    theme(title = element_text(color = ft_text_col)) + theme(plot.title = element_text(color = "white")) +
-    theme(plot.subtitle = element_text(color = ft_text_col)) +
-    theme(plot.caption = element_text(color = ft_text_col)) +
+                                                                                                                                               color = bkgrnd)) + theme(text = element_text(color = "#929299")) +
+    theme(axis.text = element_text(color = "#929299")) +
+    theme(title = element_text(color = "#929299")) + theme(plot.title = element_text(color = "white")) +
+    theme(plot.subtitle = element_text(color = "#929299")) +
+    theme(plot.caption = element_text(color = "#929299")) +
     theme(line = element_line(color = grid_col)) + theme(axis.ticks = element_line(color = grid_col))
-  ret
 }

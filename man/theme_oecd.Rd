@@ -73,6 +73,8 @@ A ggplot2 theme for OECD style plots. Adapted from Hrbrmstr's ipsum theme.
 \examples{
 library(ggplot2)
 library(dplyr)
+library(extrafont) # Required for Arial Narrow font
+loadfonts()
 
 # seminal scatterplot
 

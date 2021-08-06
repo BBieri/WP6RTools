@@ -59,8 +59,6 @@ theme_oecd_dark(
 \item{axis}{add x or y axes? \code{TRUE}, \code{FALSE}, "\code{xy}"}
 
 \item{ticks}{ticks if \code{TRUE} add ticks}
-
-\item{grid_col, axis_col}{grid & axis colors; both default to \verb{#cccccc}}
 }
 \value{
 Themes the current ggplot to current IHEID guidelines.
@@ -71,6 +69,8 @@ A ggplot2 theme for OECD style plots. Adapted from Hrbrmstr's ipsum theme.
 \examples{
 library(ggplot2)
 library(dplyr)
+library(extrafont)
+loadfonts()
 
 # seminal scatterplot
 
