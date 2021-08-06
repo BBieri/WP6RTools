@@ -1,1 +1,36 @@
 url: https://bbieri.github.io/WP6RTools
+development:
+    mode: auto
+template:
+  params:
+    bootswatch: flatly
+authors:
+  Bernhard Bieri:
+    href: bernhardbieri.ch
+navbar:
+  structure:
+    left:
+    - home
+    - reference
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: News
+      href: news/index.html
+reference:
+  - title: "{ggplot} themes"
+    desc: "These functions are here to assist in the creation of {ggplots}:"
+    contents:
+    - theme_oecd
+    - theme_oecd_dark
+  - title: "Color palette"
+    desc: "This exported list contains colors of the OECD style guide"
+    contents:
+    - oecd_palette
