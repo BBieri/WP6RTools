@@ -8,6 +8,11 @@ Authors@R:
            email = "bernhard.bieri@graduateinstitute.ch",
            comment = c(ORCID = "0000-0001-5943-9059"))
 Description: R Tools for WP6 Data Analysis Work.
+Imports:
+    ggplot2,
+    magrittr,
+    dplyr,
+    extrafont
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
