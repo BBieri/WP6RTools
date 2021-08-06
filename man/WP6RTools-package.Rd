@@ -8,6 +8,13 @@
 \description{
 R Tools for WP6 Data Analysis Work.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://bbieri.github.io/WP6RTools}
+}
+
+}
 \author{
 \strong{Maintainer}: Bernhard Bieri \email{bernhard.bieri@graduateinstitute.ch} (\href{https://orcid.org/0000-0001-5943-9059}{ORCID})
 

@@ -5,7 +5,7 @@
 \title{A ggplot2 theme for OECD style plots. Adapted from Hrbrmstr's ipsum theme.}
 \usage{
 theme_oecd(
-  base_family = "Arial Narrow",
+  base_family = "sans",
   base_size = 11.5,
   plot_title_family = base_family,
   plot_title_size = 18,
@@ -73,8 +73,6 @@ A ggplot2 theme for OECD style plots. Adapted from Hrbrmstr's ipsum theme.
 \examples{
 library(ggplot2)
 library(dplyr)
-library(extrafont) # Required for Arial Narrow font
-loadfonts()
 
 # seminal scatterplot
 
