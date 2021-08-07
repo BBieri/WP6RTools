@@ -8,56 +8,114 @@
 [![R-CMD-check](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)
 <!-- badges: end -->
 
-The goal of WP6RTools is to …
+WP6RTools provides a collection of tools to streamline the production
+process of data analysis products. At the moment it includes two themes
+for `{ggplot}` graphs and a color palette that emulates the OECD colors.
 
 ## Installation
 
-You can install the released version of WP6RTools from
-[CRAN](https://CRAN.R-project.org) with:
+Since this package is meant for internal use only, it will not be
+distributed with CRAN. You can install the internal/development version
+from [GitHub](https://github.com/) with:
 
 ``` r
-install.packages("WP6RTools")
+# install.packages("remotes")
+remotes::install_github("BBieri/WP6RTools")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+## OECD themes
+
+As mentionned above, the package currently contains two, OECD-styled,
+themes for `{ggplot}`. Both themes are essentially modified versions of
+the `theme_ipsum()` theme of the
+[`{hrbrthemes}`](https://github.com/hrbrmstr/hrbrthemes).
+
+Let’s plot some things with the `theme_oecd()` light theme.
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("BBieri/WP6RTools")
+# Load required packages
+library(WP6RTools) # Our package
+library(dplyr) # Manipulation tools for dataframes. Part of the Tidyverse.
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+library(ggplot2) #
+library(hrbrthemes)
+
+# A scatter plot
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  labs(x = "Fuel efficiency (mpg)", y = "Weight (tons)",
+       title = "Seminal ggplot2 scatterplot example",
+       subtitle = "A plot that is only useful for demonstration purposes",
+       caption = "Source: somewhere on the web.") + 
+  theme_oecd()
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+<img src="man/figures/README-examplelight-1.png" width="100%" />
 
 ``` r
+# A tidy histogram
+count(mpg, class) %>% 
+  mutate(pct=n/sum(n)) %>%  # Create a new percentage column
+  ggplot(aes(class, pct)) + # Create the graph
+  geom_col() +
+  scale_y_percent() +
+  labs(y="Proportion", x="Vehicle categories",
+       title="Seminal ggplot2 column chart example with percents",
+       subtitle="A plot that is only useful for demonstration purposes",
+       caption="Source: somewhere on the web.") + 
+  theme_oecd(grid="Y")
+```
+
+<img src="man/figures/README-examplelight-2.png" width="100%" />
+
+Looking great! Let’s check out how these plots look like with the
+`theme_oecd_dark()` dark theme.
+
+``` r
+# Load required packages
 library(WP6RTools)
-## basic example code
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+
+# A scatter plot
+ggplot(mtcars, aes(mpg, wt)) +
+  geom_point() +
+  labs(x = "Fuel efficiency (mpg)", y = "Weight (tons)",
+       title = "Seminal ggplot2 scatterplot example",
+       subtitle = "A plot that is only useful for demonstration purposes",
+       caption = "Source: somewhere on the web.") + 
+  theme_oecd_dark()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+<img src="man/figures/README-exampledark-1.png" width="100%" />
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# A tidy histogram
+count(mpg, class) %>% 
+  mutate(pct=n/sum(n)) %>% # Create a new percentage column
+  ggplot(aes(class, pct)) + # Create the graph
+  geom_col() +
+  scale_y_percent() +
+  labs(y="Proportion", x="Vehicle category",
+       title="Seminal ggplot2 column chart example with percents",
+       subtitle="A plot that is only useful for demonstration purposes",
+       caption="Source: somewhere on the web.") + 
+  theme_oecd_dark(grid="Y")
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+<img src="man/figures/README-exampledark-2.png" width="100%" />
 
-You can also embed plots, for example:
+## Issues, Improvements and Questions
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+Have you experienced an issue while using the package or have a question
+about it? Open an [issue](https://github.com/BBieri/WP6RTools/issues).
+Do you want to suggest improvement? Then open up a
+[PR](https://github.com/BBieri/WP6RTools/pulls).
