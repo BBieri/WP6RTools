@@ -102,6 +102,23 @@ count(mpg, class) %>%
        caption="Source: somewhere on the web.") + 
   theme_oecd_dark(grid="Y")
 ```
+## OECD palette generator
+
+WP6Rtools also includes its very own palette generation tool based on the
+included list `oecd_palettes`. You can generate both discrete color palettes
+which will take the colors of the aforementionned list or continuous palettes
+which will interpolate colors between the ones specified in the `oecd_palettes`
+list.
+
+```{r, oecdpalette}
+# Discrete palette
+discrete <- oecd_palette("oecd", 5, type = "discrete")
+discrete
+# Continuous palette
+continuous <- oecd_palette("oecd", 15, type = "continuous")
+continuous
+```
+
 
 ## Issues, Improvements and Questions
 

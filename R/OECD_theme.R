@@ -248,7 +248,7 @@ theme_oecd_dark <- function(base_family = "sans",
                              ticks = FALSE)
 {
   grid_col <- axis_col <- "#464950"
-  subtitle_col <- oecd_palette$oecd_yellow
+  subtitle_col <- oecd_palettes[["oecd"]][["oecd_gray"]]
   def_fore <- "#617a89"
   ggplot2::update_geom_defaults("point", list(colour = def_fore))
   ggplot2::update_geom_defaults("line", list(colour = def_fore))
@@ -360,7 +360,7 @@ theme_oecd_dark <- function(base_family = "sans",
                                                  size = caption_size, margin = margin(t = caption_margin),
                                                  family = caption_family, face = caption_face))
   ret <- ret + theme(plot.margin = plot_margin)
-  bkgrnd <- oecd_palette$oecd_gray # Background color
+  bkgrnd <- oecd_palettes[["oecd"]][["oecd_gray"]] # Background color
   fgrnd <- "#617a89" # Foreground color
   ret <- ret + theme(rect = element_rect(fill = bkgrnd, color = bkgrnd)) +
     theme(plot.background = element_rect(fill = bkgrnd,
