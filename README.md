@@ -1,4 +1,6 @@
 
+# iheiddown <img src="man/figures/WP6RTools.png" align="right" width="220"/>
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # WP6RTools
