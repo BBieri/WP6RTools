@@ -102,6 +102,7 @@ count(mpg, class) %>%
        caption="Source: somewhere on the web.") + 
   theme_oecd_dark(grid="Y")
 ```
+
 ## OECD palette generator
 
 WP6Rtools also includes its very own palette generation tool based on the
