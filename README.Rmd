@@ -2,7 +2,7 @@
 output: github_document
 ---
 
-# iheiddown <img src="man/figures/WP6RTools.png" align="right" width="220"/>
+# WP6RTools <img src="man/figures/WP6RTools.png" align="right" width="220"/>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -14,8 +14,6 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-
-# WP6RTools
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)

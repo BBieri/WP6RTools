@@ -1,10 +1,7 @@
 
-# iheiddown <img src="man/figures/WP6RTools.png" align="right" width="220"/>
+# WP6RTools <img src="man/figures/WP6RTools.png" align="right" width="220"/>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# WP6RTools
-
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)

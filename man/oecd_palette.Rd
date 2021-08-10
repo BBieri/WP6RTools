@@ -31,7 +31,7 @@ oecd_palette("oecd")
 # If you need more colours than normally found in a palette, you
 # can use a continuous palette to interpolate between existing
 # colours
-pal <- oecd_palette(21, name = "Centres", type = "continuous")
+pal <- oecd_palette(21, name = "oecd", type = "continuous")
 image(volcano, col = pal)
 }
 \keyword{colors}
