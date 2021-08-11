@@ -1,9 +1,9 @@
 
 # WP6RTools <img src="man/figures/WP6RTools.png" align="right" width="220"/>
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
+[![R-Build-Status](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)
 [![R-CMD-check](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)
 <!-- badges: end -->
 
@@ -18,7 +18,7 @@ distributed with CRAN. You can install the internal/development version
 from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("remotes")
+install.packages("remotes") # Let's you install packages from other sources than CRAN
 remotes::install_github("BBieri/WP6RTools")
 ```
 
@@ -60,16 +60,16 @@ ggplot(mtcars, aes(mpg, wt)) +
 
 ``` r
 # A tidy histogram
-count(mpg, class) %>% 
-  mutate(pct=n/sum(n)) %>%  # Create a new percentage column
-  ggplot(aes(class, pct)) + # Create the graph
-  geom_col() +
-  scale_y_percent() +
-  labs(y="Proportion", x="Vehicle categories",
-       title="Seminal ggplot2 column chart example with percents",
-       subtitle="A plot that is only useful for demonstration purposes",
-       caption="Source: somewhere on the web.") + 
-  theme_oecd(grid="Y")
+count(mpg, class) %>%
+  ggplot(aes(class, n)) +
+   geom_col(fill = oecd_palette("oecd", 7, type = "continuous")) +
+   geom_text(aes(label = n), nudge_y = 3) +
+   labs(x = "Vehicle Category", y = "Number of Vehicles",
+        title = "Seminal ggplot2 bar chart example",
+        subtitle = "A plot that is only useful for demonstration purposes",
+        caption = "Source: somewhere on the web") +
+   theme_oecd(grid = "Y") +
+   theme(axis.text.y = element_blank())
 ```
 
 <img src="man/figures/README-examplelight-2.png" width="100%" />
@@ -142,3 +142,10 @@ Have you experienced an issue while using the package or have a question
 about it? Open an [issue](https://github.com/BBieri/WP6RTools/issues).
 Do you want to suggest improvement? Then open up a
 [PR](https://github.com/BBieri/WP6RTools/pulls).
+
+## Code of Conduct
+
+Please note that the WP6RTools project is released with a [Contributor
+Code of
+Conduct](https://bbieri.github.io/WP6RTools/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
