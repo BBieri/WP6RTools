@@ -4,9 +4,12 @@ development:
 template:
   params:
     bootswatch: flatly
+home:
+  title: The R Package for WP6 related statistical work
+  description: Create pretty graphs, palettes, and more with WP6RTools!
 authors:
   Bernhard Bieri:
-    href: bernhardbieri.ch
+    href: https://bernhardbieri.ch
 navbar:
   structure:
     left:
