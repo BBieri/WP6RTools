@@ -18,4 +18,8 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: https://bbieri.github.io/WP6RTools
+URL: https://github.com/BBieri/WP6RTools
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+BugReports: https://github.com/BBieri/WP6RTools/issues
