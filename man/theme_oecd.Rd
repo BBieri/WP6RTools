@@ -7,6 +7,7 @@
 theme_oecd(
   base_family = "sans",
   base_size = 11.5,
+  main_col = "grey35",
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
@@ -87,13 +88,13 @@ ggplot(mtcars, aes(mpg, wt)) +
 # seminal bar chart
 
 count(mpg, class) \%>\%
-  ggplot(aes(class, n)) +
-  geom_col() +
+ ggplot(aes(class, n)) +
+  geom_col(fill = oecd_palette("oecd", 7, type = "continuous")) +
   geom_text(aes(label=n), nudge_y=3) +
-  labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
+  labs(x="Vehicle Category", y="Number of Vehicles",
        title="Seminal ggplot2 bar chart example",
        subtitle="A plot that is only useful for demonstration purposes",
-       caption="Brought to you by the letter 'g'") +
+       caption="Source: somewhere on the web") +
   theme_oecd(grid="Y") +
   theme(axis.text.y=element_blank())
 }

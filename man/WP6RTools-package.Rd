@@ -11,7 +11,8 @@ R Tools for WP6 Data Analysis Work.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://bbieri.github.io/WP6RTools}
+  \item \url{https://github.com/BBieri/WP6RTools}
+  \item Report bugs at \url{https://github.com/BBieri/WP6RTools/issues}
 }
 
 }
