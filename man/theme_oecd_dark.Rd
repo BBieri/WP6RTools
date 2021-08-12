@@ -42,7 +42,7 @@ theme_oecd_dark(
 
 \item{plot_title_family, plot_title_face, plot_title_size, plot_title_margin}{plot title family, face, size and margi}
 
-\item{subtitle_family, subtitle_face, subtitle_size}{plot subtitle family, face and size}
+\item{subtitle_family, subtitle_face, subtitle_size, subtitile_col}{plot subtitle family, face, size, and color}
 
 \item{subtitle_margin}{plot subtitle margin bottom (single numeric value)}
 
