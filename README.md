@@ -1,12 +1,6 @@
 
 # WP6RTools <img src="man/figures/WP6RTools.png" align="right" width="220"/>
 
-<!-- badges: start -->
-
-[![R-Build-Status](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)
-[![R-CMD-check](https://github.com/BBieri/WP6RTools/workflows/R-CMD-check/badge.svg)](https://github.com/BBieri/WP6RTools/actions)
-<!-- badges: end -->
-
 WP6RTools provides a collection of tools to streamline the production
 process of data analysis products. At the moment it includes two themes
 for `{ggplot}` graphs and a color palette that emulates the OECD colors.
@@ -14,12 +8,15 @@ for `{ggplot}` graphs and a color palette that emulates the OECD colors.
 ## Installation
 
 Since this package is meant for internal use only, it will not be
-distributed with CRAN. You can install the internal/development version
-from [GitHub](https://github.com/) with:
+distributed with CRAN or be in a public repository on GitHub. You will
+therefore have to [contact
+me](mailto:bernhard.bieri@graduateinstitute.ch) to get an access token.
+Once you have it, you can install the internal/development version from
+[GitHub](https://github.com/) with:
 
 ``` r
-install.packages("remotes") # Let's you install packages from other sources than CRAN
-remotes::install_github("BBieri/WP6RTools")
+install.packages("remotes") # Lets you install packages from other sources than CRAN
+remotes::install_github("BBieri/WP6RTools", auth_token = "YOUR_AUTH_TOKEN")
 ```
 
 ## OECD themes
@@ -104,7 +101,7 @@ count(mpg, class) %>%
   geom_col() +
   scale_y_percent() +
   labs(y="Proportion", x="Vehicle category",
-       title="Seminal ggplot2 column chart example with percents",
+       title="Seminal ggplot2 column chart\nexample with percents",
        subtitle="A plot that is only useful for demonstration purposes",
        caption="Source: somewhere on the web.") + 
   theme_oecd_dark(grid="Y")
