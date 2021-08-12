@@ -198,7 +198,7 @@ theme_oecd <- function(base_family = "sans",
 #' @param base_family,base_size base font family and size
 #' @param main_col main color of the plot. Colors points, histogram bars, etc.
 #' @param plot_title_family,plot_title_face,plot_title_size,plot_title_margin plot title family, face, size and margi
-#' @param subtitle_family,subtitle_face,subtitle_size,subtitile_col plot subtitle family, face, size, and color
+#' @param subtitle_family,subtitle_face,subtitle_size,subtitle_col plot subtitle family, face, size, and color
 #' @param subtitle_margin plot subtitle margin bottom (single numeric value)
 #' @param strip_text_family,strip_text_face,strip_text_size facet label font family, face and size
 #' @param caption_family,caption_face,caption_size,caption_margin plot caption family, face, size and margin
