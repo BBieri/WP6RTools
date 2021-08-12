@@ -1,5 +1,6 @@
 Package: WP6RTools
 Title: R Tools for WP6 Data Analysis Work
+Date: 2021-08-11
 Version: 0.0.1
 Authors@R: 
     person(given = "Bernhard",
@@ -7,7 +8,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "bernhard.bieri@graduateinstitute.ch",
            comment = c(ORCID = "0000-0001-5943-9059"))
-Description: R Tools for WP6 Data Analysis Work.
+Description: R Tools for WP6 Data Analysis Work. The package currently contains
+    a ggplot theme following the OECD color palette as well as a palette
+    generator to accelerate the production of data visualization products.
+Depends: R (>= 3.5.0)
 Imports:
     ggplot2,
     magrittr,

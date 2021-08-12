@@ -7,6 +7,7 @@
 theme_oecd_dark(
   base_family = "sans",
   base_size = 11.5,
+  main_col = "#EBBB67",
   plot_title_family = base_family,
   plot_title_size = 18,
   plot_title_face = "bold",
@@ -15,6 +16,7 @@ theme_oecd_dark(
   subtitle_size = 13,
   subtitle_face = "plain",
   subtitle_margin = 15,
+  subtitle_col = "gray85",
   strip_text_family = base_family,
   strip_text_size = 12,
   strip_text_face = "plain",
@@ -36,9 +38,11 @@ theme_oecd_dark(
 \arguments{
 \item{base_family, base_size}{base font family and size}
 
+\item{main_col}{main color of the plot. Colors points, histogram bars, etc.}
+
 \item{plot_title_family, plot_title_face, plot_title_size, plot_title_margin}{plot title family, face, size and margi}
 
-\item{subtitle_family, subtitle_face, subtitle_size}{plot subtitle family, face and size}
+\item{subtitle_family, subtitle_face, subtitle_size, subtitle_col}{plot subtitle family, face, size, and color}
 
 \item{subtitle_margin}{plot subtitle margin bottom (single numeric value)}
 
@@ -70,7 +74,7 @@ A ggplot2 theme for OECD style plots. Adapted from Hrbrmstr's ipsum theme.
 library(ggplot2)
 library(dplyr)
 
-# seminal scatterplot
+# Seminal scatterplot
 
 ggplot(mtcars, aes(mpg, wt)) +
   geom_point() +
@@ -80,16 +84,16 @@ ggplot(mtcars, aes(mpg, wt)) +
        caption="Brought to you by the letter 'g'") +
   theme_oecd_dark()
 
-# seminal bar chart
+# Seminal bar chart
 
 count(mpg, class) \%>\%
-  ggplot(aes(class, n)) +
-  geom_col() +
-  geom_text(aes(label=n), nudge_y=3) +
-  labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
-       title="Seminal ggplot2 bar chart example",
-       subtitle="A plot that is only useful for demonstration purposes",
-       caption="Brought to you by the letter 'g'") +
-  theme_oecd_dark(grid="Y") +
-  theme(axis.text.y=element_blank())
+ ggplot(aes(class, n)) +
+   geom_col(fill = oecd_palette("oecd", 21, type = "continuous")[15:21]) +
+   geom_text(aes(label=n), nudge_y=3) +
+   labs(x="Vehicle Category", y="Number of Vehicles",
+        title="Seminal ggplot2 bar chart example",
+        subtitle="A plot that is only useful for demonstration purposes",
+        caption="Source: somewhere on the web") +
+   theme_oecd(grid="Y") +
+   theme(axis.text.y=element_blank())
 }

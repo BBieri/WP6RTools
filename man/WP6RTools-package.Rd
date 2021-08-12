@@ -6,12 +6,15 @@
 \alias{WP6RTools-package}
 \title{WP6RTools: R Tools for WP6 Data Analysis Work}
 \description{
-R Tools for WP6 Data Analysis Work.
+R Tools for WP6 Data Analysis Work. The package currently contains
+    a ggplot theme following the OECD color palette as well as a palette
+    generator to accelerate the production of data visualization products.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://bbieri.github.io/WP6RTools}
+  \item \url{https://github.com/BBieri/WP6RTools}
+  \item Report bugs at \url{https://github.com/BBieri/WP6RTools/issues}
 }
 
 }

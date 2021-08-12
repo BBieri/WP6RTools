@@ -2,6 +2,7 @@
 #'
 #' @importFrom ggplot2 theme margin element_text element_blank element_line element_rect
 #' @param base_family,base_size base font family and size
+#' @param main_col main color of the plot. Colors points, histogram bars, etc.
 #' @param plot_title_family,plot_title_face,plot_title_size,plot_title_margin plot title family, face, size and margi
 #' @param subtitle_family,subtitle_face,subtitle_size plot subtitle family, face and size
 #' @param subtitle_margin plot subtitle margin bottom (single numeric value)
@@ -33,19 +34,20 @@
 #' # seminal bar chart
 #'
 #' count(mpg, class) %>%
-#'   ggplot(aes(class, n)) +
-#'   geom_col() +
+#'  ggplot(aes(class, n)) +
+#'   geom_col(fill = oecd_palette("oecd", 7, type = "continuous")) +
 #'   geom_text(aes(label=n), nudge_y=3) +
-#'   labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
+#'   labs(x="Vehicle Category", y="Number of Vehicles",
 #'        title="Seminal ggplot2 bar chart example",
 #'        subtitle="A plot that is only useful for demonstration purposes",
-#'        caption="Brought to you by the letter 'g'") +
+#'        caption="Source: somewhere on the web") +
 #'   theme_oecd(grid="Y") +
 #'   theme(axis.text.y=element_blank())
 #' @export
 
 theme_oecd <- function(base_family = "sans",
                         base_size = 11.5,
+                        main_col = "grey35",
                         plot_title_family = base_family,
                         plot_title_size = 18,
                         plot_title_face = "bold",
@@ -73,6 +75,21 @@ theme_oecd <- function(base_family = "sans",
                         axis = FALSE,
                         ticks = FALSE)
 {
+  # Redefine some styles. Point colors, histogram colors etc...
+  ggplot2::update_geom_defaults("point", list(colour = main_col))
+  ggplot2::update_geom_defaults("line", list(colour = main_col))
+  ggplot2::update_geom_defaults("area", list(colour = main_col,
+                                             fill = main_col))
+  ggplot2::update_geom_defaults("rect", list(colour = main_col,
+                                             fill = main_col))
+  ggplot2::update_geom_defaults("density", list(colour = main_col,
+                                                fill = main_col))
+  ggplot2::update_geom_defaults("bar", list(colour = main_col,
+                                            fill = main_col))
+  ggplot2::update_geom_defaults("col", list(colour = main_col,
+                                            fill = main_col))
+  ggplot2::update_geom_defaults("text", list(colour = "gray85"))
+  # Apply minimal theme from ggplot
   ret <- ggplot2::theme_minimal(base_family = base_family,
                                 base_size = base_size)
   ret <- ret + theme(legend.background = element_blank())
@@ -179,8 +196,9 @@ theme_oecd <- function(base_family = "sans",
 #'
 #' @importFrom ggplot2 theme margin element_text element_blank element_line element_rect
 #' @param base_family,base_size base font family and size
+#' @param main_col main color of the plot. Colors points, histogram bars, etc.
 #' @param plot_title_family,plot_title_face,plot_title_size,plot_title_margin plot title family, face, size and margi
-#' @param subtitle_family,subtitle_face,subtitle_size plot subtitle family, face and size
+#' @param subtitle_family,subtitle_face,subtitle_size,subtitle_col plot subtitle family, face, size, and color
 #' @param subtitle_margin plot subtitle margin bottom (single numeric value)
 #' @param strip_text_family,strip_text_face,strip_text_size facet label font family, face and size
 #' @param caption_family,caption_face,caption_size,caption_margin plot caption family, face, size and margin
@@ -196,7 +214,7 @@ theme_oecd <- function(base_family = "sans",
 #' library(ggplot2)
 #' library(dplyr)
 #'
-#' # seminal scatterplot
+#' # Seminal scatterplot
 #'
 #' ggplot(mtcars, aes(mpg, wt)) +
 #'   geom_point() +
@@ -206,22 +224,23 @@ theme_oecd <- function(base_family = "sans",
 #'        caption="Brought to you by the letter 'g'") +
 #'   theme_oecd_dark()
 #'
-#' # seminal bar chart
+#' # Seminal bar chart
 #'
 #' count(mpg, class) %>%
-#'   ggplot(aes(class, n)) +
-#'   geom_col() +
-#'   geom_text(aes(label=n), nudge_y=3) +
-#'   labs(x="Fuel efficiency (mpg)", y="Weight (tons)",
-#'        title="Seminal ggplot2 bar chart example",
-#'        subtitle="A plot that is only useful for demonstration purposes",
-#'        caption="Brought to you by the letter 'g'") +
-#'   theme_oecd_dark(grid="Y") +
-#'   theme(axis.text.y=element_blank())
+#'  ggplot(aes(class, n)) +
+#'    geom_col(fill = oecd_palette("oecd", 21, type = "continuous")[15:21]) +
+#'    geom_text(aes(label=n), nudge_y=3) +
+#'    labs(x="Vehicle Category", y="Number of Vehicles",
+#'         title="Seminal ggplot2 bar chart example",
+#'         subtitle="A plot that is only useful for demonstration purposes",
+#'         caption="Source: somewhere on the web") +
+#'    theme_oecd(grid="Y") +
+#'    theme(axis.text.y=element_blank())
 #' @export
 
 theme_oecd_dark <- function(base_family = "sans",
                              base_size = 11.5,
+                             main_col = "#EBBB67",
                              plot_title_family = base_family,
                              plot_title_size = 18,
                              plot_title_face = "bold",
@@ -230,6 +249,7 @@ theme_oecd_dark <- function(base_family = "sans",
                              subtitle_size = 13,
                              subtitle_face = "plain",
                              subtitle_margin = 15,
+                             subtitle_col = "gray85",
                              strip_text_family = base_family,
                              strip_text_size = 12,
                              strip_text_face = "plain",
@@ -248,21 +268,19 @@ theme_oecd_dark <- function(base_family = "sans",
                              ticks = FALSE)
 {
   grid_col <- axis_col <- "#464950"
-  subtitle_col <- oecd_palettes[["oecd"]][["oecd_gray"]]
-  def_fore <- "#617a89"
-  ggplot2::update_geom_defaults("point", list(colour = def_fore))
-  ggplot2::update_geom_defaults("line", list(colour = def_fore))
-  ggplot2::update_geom_defaults("area", list(colour = def_fore,
-                                             fill = def_fore))
-  ggplot2::update_geom_defaults("rect", list(colour = def_fore,
-                                             fill = def_fore))
-  ggplot2::update_geom_defaults("density", list(colour = def_fore,
-                                                fill = def_fore))
-  ggplot2::update_geom_defaults("bar", list(colour = def_fore,
-                                            fill = def_fore))
-  ggplot2::update_geom_defaults("col", list(colour = def_fore,
-                                            fill = def_fore))
-  ggplot2::update_geom_defaults("text", list(colour = "#929299"))
+  ggplot2::update_geom_defaults("point", list(colour = main_col))
+  ggplot2::update_geom_defaults("line", list(colour = main_col))
+  ggplot2::update_geom_defaults("area", list(colour = main_col,
+                                             fill = main_col))
+  ggplot2::update_geom_defaults("rect", list(colour = main_col,
+                                             fill = main_col))
+  ggplot2::update_geom_defaults("density", list(colour = main_col,
+                                                fill = main_col))
+  ggplot2::update_geom_defaults("bar", list(colour = main_col,
+                                            fill = main_col))
+  ggplot2::update_geom_defaults("col", list(colour = main_col,
+                                            fill = main_col))
+  ggplot2::update_geom_defaults("text", list(colour = "gray85"))
   ret <- ggplot2::theme_minimal(base_family = base_family,
                                 base_size = base_size)
   ret <- ret + theme(legend.background = element_blank())
