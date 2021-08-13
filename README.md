@@ -140,7 +140,10 @@ about it? Open an [issue](https://github.com/BBieri/WP6RTools/issues).
 Do you want to suggest improvement? Then open up a
 [PR](https://github.com/BBieri/WP6RTools/pulls).
 
-## Code of Conduct
+## Final Notes
+
+Note that the present R-Package is in no way related to or endorsed by
+the OECD.
 
 Please note that the WP6RTools project is released with a [Contributor
 Code of
