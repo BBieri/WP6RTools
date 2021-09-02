@@ -8,15 +8,12 @@ for `{ggplot}` graphs and a color palette that emulates the OECD colors.
 ## Installation
 
 Since this package is meant for internal use only, it will not be
-distributed with CRAN or be in a public repository on GitHub. You will
-therefore have to [contact
-me](mailto:bernhard.bieri@graduateinstitute.ch) to get an access token.
-Once you have it, you can install the internal/development version from
-[GitHub](https://github.com/) with:
+distributed with CRAN. Simply type the following commands into your
+R-Studio console to install the package from GitHub!
 
 ``` r
 install.packages("remotes") # Lets you install packages from other sources than CRAN
-remotes::install_github("BBieri/WP6RTools", auth_token = "YOUR_AUTH_TOKEN")
+remotes::install_github("BBieri/WP6RTools")
 ```
 
 ## OECD themes
@@ -132,6 +129,49 @@ continuous
 ```
 
 <img src="man/figures/README-oecdpalette-2.png" width="100%" />
+
+## Miscellaneous OECD scraping functions
+
+These functions are intended to produce quickly the list of OECD
+countries, OECD Secretary Generals, and data about these two concepts.
+
+``` r
+head(oecd_members())
+#> # A tibble: 6 x 8
+#>   ID    Country  Application Negotiations Invitation Membership `Geographic loc~
+#>   <chr> <chr>    <date>      <date>       <date>     <date>     <chr>           
+#> 1 AUS   Austral~ NA          NA           NA         1971-06-07 Oceania         
+#> 2 AUT   Austria  NA          NA           NA         1961-09-29 Europe          
+#> 3 BEL   Belgium  NA          NA           NA         1961-09-13 Europe          
+#> 4 CAN   Canada   NA          NA           NA         1961-04-10 North America   
+#> 5 CHL   Chile    NA          2007-05-16   2009-12-15 2010-05-07 South America   
+#> 6 COL   Colombia 2011-01-24  2013-05-30   2018-05-25 2020-04-28 South America   
+#> # ... with 1 more variable: Notes <chr>
+head(oecd_member_metrics())
+#> # A tibble: 6 x 15
+#>   ID    Country   `Area(km2)2017` `Population 2017` `GDP (PPP) (Intl. $)2017`
+#>   <chr> <chr>               <dbl>             <dbl>                     <dbl>
+#> 1 AUS   Australia         7741220          24598933             1192065505301
+#> 2 AUT   Austria             83879           8809212              461582926400
+#> 3 BEL   Belgium             30530          11372068              544041974958
+#> 4 CAN   Canada            9984670          36708083             1714447151944
+#> 5 CHL   Chile              756096          18054726              444777637169
+#> 6 COL   Colombia          1141748          48901066              709420539907
+#> # ... with 10 more variables: GDP (PPP)per capita(Intl. $)2017 <dbl>,
+#> #   Incomeinequality 2008-2016(latest available) <dbl>, HDI2019 <dbl>,
+#> #   FSI2019 <dbl>, RLI2020 <dbl>, CPI2019 <dbl>, IEF2020 <dbl>, GPI2019 <dbl>,
+#> #   WPFI2019 <dbl>, DI2019 <dbl>
+head(oecd_secretary())
+#> # A tibble: 6 x 5
+#>   ID    `Secretary-General`       Beg        End        `Country of origin`
+#>   <chr> <chr>                     <date>     <date>     <chr>              
+#> 1 1     Thorkil Kristensen        1961-09-30 1969-09-30 Denmark            
+#> 2 2     Emiel van Lennep          1969-10-01 1984-09-30 Netherlands        
+#> 3 3     Jean-Claude Paye          1984-10-01 1994-09-30 France             
+#> 4 —     Staffan Sohlman (interim) 1994-10-01 1994-11-01 Sweden             
+#> 5 3     Jean-Claude Paye          1994-11-01 1996-05-31 France             
+#> 6 4     Donald Johnston           1996-06-01 2006-05-31 Canada
+```
 
 ## Issues, Improvements and Questions
 

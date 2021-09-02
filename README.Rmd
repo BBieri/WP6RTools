@@ -22,14 +22,12 @@ graphs and a color palette that emulates the OECD colors.
 ## Installation
 
 Since this package is meant for internal use only, it will not be distributed
-with CRAN or be in a public repository on GitHub. You will therefore have to
-[contact me](mailto:bernhard.bieri@graduateinstitute.ch) to get an access
-token. Once you have it, you can install the internal/development version from
-[GitHub](https://github.com/) with:
+with CRAN. Simply type the following commands into your R-Studio console to 
+install the package from GitHub!
 
 ``` {r, eval = FALSE}
 install.packages("remotes") # Lets you install packages from other sources than CRAN
-remotes::install_github("BBieri/WP6RTools", auth_token = "YOUR_AUTH_TOKEN")
+remotes::install_github("BBieri/WP6RTools")
 ```
 ## OECD themes
 
@@ -118,6 +116,16 @@ continuous <- oecd_palette("oecd", 15, type = "continuous")
 continuous
 ```
 
+## Miscellaneous OECD scraping functions
+
+These functions are intended to produce quickly the list of OECD countries,
+OECD Secretary Generals, and data about these two concepts.
+
+``` {r, oecd_misc}
+head(oecd_members())
+head(oecd_member_metrics())
+head(oecd_secretary())
+```
 
 ## Issues, Improvements and Questions
 
@@ -130,6 +138,7 @@ suggest improvement? Then open up a
 
 Note that the present R-Package is in no way related to or endorsed by the OECD.
 
-Please note that the WP6RTools project is released with a [Contributor Code of Conduct](https://bbieri.github.io/WP6RTools/CODE_OF_CONDUCT.html).
+Please note that the WP6RTools project is released with a
+[Contributor Code of Conduct](https://bbieri.github.io/WP6RTools/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
