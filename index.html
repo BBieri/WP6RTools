@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">WP6RTools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -77,10 +77,10 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Since this package is meant for internal use only, it will not be distributed with CRAN or be in a public repository on GitHub. You will therefore have to <a href="mailto:bernhard.bieri@graduateinstitute.ch">contact me</a> to get an access token. Once you have it, you can install the internal/development version from <a href="https://github.com/">GitHub</a> with:</p>
+<p>Since this package is meant for internal use only, it will not be distributed with CRAN. Simply type the following commands into your R-Studio console to install the package from GitHub!</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span> <span class="co"># Lets you install packages from other sources than CRAN</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"BBieri/WP6RTools"</span>, auth_token <span class="op">=</span> <span class="st">"YOUR_AUTH_TOKEN"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"BBieri/WP6RTools"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="oecd-themes" class="section level2">
 <h2 class="hasAnchor">
@@ -169,6 +169,47 @@
 <span class="va">continuous</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/oecd_palette.html">oecd_palette</a></span><span class="op">(</span><span class="st">"oecd"</span>, <span class="fl">15</span>, type <span class="op">=</span> <span class="st">"continuous"</span><span class="op">)</span>
 <span class="va">continuous</span></code></pre></div>
 <p><img src="reference/figures/README-oecdpalette-2.png" width="100%"></p>
+</div>
+<div id="miscellaneous-oecd-scraping-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#miscellaneous-oecd-scraping-functions" class="anchor"></a>Miscellaneous OECD scraping functions</h2>
+<p>These functions are intended to produce quickly the list of OECD countries, OECD Secretary Generals, and data about these two concepts.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="reference/oecd_misc.html">oecd_members</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 x 8</span>
+<span class="co">#&gt;   ID    Country  Application Negotiations Invitation Membership `Geographic loc~</span>
+<span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;date&gt;      &lt;date&gt;       &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;           </span>
+<span class="co">#&gt; 1 AUS   Austral~ NA          NA           NA         1971-06-07 Oceania         </span>
+<span class="co">#&gt; 2 AUT   Austria  NA          NA           NA         1961-09-29 Europe          </span>
+<span class="co">#&gt; 3 BEL   Belgium  NA          NA           NA         1961-09-13 Europe          </span>
+<span class="co">#&gt; 4 CAN   Canada   NA          NA           NA         1961-04-10 North America   </span>
+<span class="co">#&gt; 5 CHL   Chile    NA          2007-05-16   2009-12-15 2010-05-07 South America   </span>
+<span class="co">#&gt; 6 COL   Colombia 2011-01-24  2013-05-30   2018-05-25 2020-04-28 South America   </span>
+<span class="co">#&gt; # ... with 1 more variable: Notes &lt;chr&gt;</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="reference/oecd_misc.html">oecd_member_metrics</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 x 15</span>
+<span class="co">#&gt;   ID    Country   `Area(km2)2017` `Population 2017` `GDP (PPP) (Intl. $)2017`</span>
+<span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;             &lt;dbl&gt;                     &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 AUS   Australia         7741220          24598933             1192065505301</span>
+<span class="co">#&gt; 2 AUT   Austria             83879           8809212              461582926400</span>
+<span class="co">#&gt; 3 BEL   Belgium             30530          11372068              544041974958</span>
+<span class="co">#&gt; 4 CAN   Canada            9984670          36708083             1714447151944</span>
+<span class="co">#&gt; 5 CHL   Chile              756096          18054726              444777637169</span>
+<span class="co">#&gt; 6 COL   Colombia          1141748          48901066              709420539907</span>
+<span class="co">#&gt; # ... with 10 more variables: GDP (PPP)per capita(Intl. $)2017 &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   Incomeinequality 2008-2016(latest available) &lt;dbl&gt;, HDI2019 &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   FSI2019 &lt;dbl&gt;, RLI2020 &lt;dbl&gt;, CPI2019 &lt;dbl&gt;, IEF2020 &lt;dbl&gt;, GPI2019 &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   WPFI2019 &lt;dbl&gt;, DI2019 &lt;dbl&gt;</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="reference/oecd_misc.html">oecd_secretary</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; # A tibble: 6 x 5</span>
+<span class="co">#&gt;   ID    `Secretary-General`       Beg        End        `Country of origin`</span>
+<span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;                     &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;              </span>
+<span class="co">#&gt; 1 1     Thorkil Kristensen        1961-09-30 1969-09-30 Denmark            </span>
+<span class="co">#&gt; 2 2     Emiel van Lennep          1969-10-01 1984-09-30 Netherlands        </span>
+<span class="co">#&gt; 3 3     Jean-Claude Paye          1984-10-01 1994-09-30 France             </span>
+<span class="co">#&gt; 4 —     Staffan Sohlman (interim) 1994-10-01 1994-11-01 Sweden             </span>
+<span class="co">#&gt; 5 3     Jean-Claude Paye          1994-11-01 1996-05-31 France             </span>
+<span class="co">#&gt; 6 4     Donald Johnston           1996-06-01 2006-05-31 Canada</span></code></pre></div>
 </div>
 <div id="issues-improvements-and-questions" class="section level2">
 <h2 class="hasAnchor">
