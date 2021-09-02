@@ -16,7 +16,12 @@ Imports:
     ggplot2,
     magrittr,
     dplyr,
-    extrafont
+    stringr,
+    tidyr,
+    extrafont,
+    countrycode,
+    rvest,
+    anytime
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

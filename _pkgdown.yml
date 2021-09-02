@@ -34,6 +34,13 @@ reference:
     - theme_oecd
     - theme_oecd_dark
   - title: "Color palette"
-    desc: "This exported list contains colors of the OECD style guide"
+    desc: "A palette generation function and a custom OECD color palette"
     contents:
     - oecd_palette
+    - oecd_palettes
+  - title: "Miscellaneous functions"
+    desc: "These functions are scraping the Wikipedia article and return basic data to assist with coding."
+    contents:
+    - oecd_members
+    - oecd_member_metrics
+    - oecd_secretary

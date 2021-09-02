@@ -118,6 +118,16 @@ continuous <- oecd_palette("oecd", 15, type = "continuous")
 continuous
 ```
 
+## Miscellaneous OECD scraping functions
+
+These functions are intended to produce quickly the list of OECD countries,
+OECD Secretary Generals, and data about these two concepts.
+
+``` {r, oecd_misc}
+head(oecd_members())
+head(oecd_member_metrics())
+head(oecd_secretary())
+```
 
 ## Issues, Improvements and Questions
 
@@ -130,6 +140,7 @@ suggest improvement? Then open up a
 
 Note that the present R-Package is in no way related to or endorsed by the OECD.
 
-Please note that the WP6RTools project is released with a [Contributor Code of Conduct](https://bbieri.github.io/WP6RTools/CODE_OF_CONDUCT.html).
+Please note that the WP6RTools project is released with a
+[Contributor Code of Conduct](https://bbieri.github.io/WP6RTools/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
