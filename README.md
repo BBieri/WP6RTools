@@ -8,15 +8,12 @@ for `{ggplot}` graphs and a color palette that emulates the OECD colors.
 ## Installation
 
 Since this package is meant for internal use only, it will not be
-distributed with CRAN or be in a public repository on GitHub. You will
-therefore have to [contact
-me](mailto:bernhard.bieri@graduateinstitute.ch) to get an access token.
-Once you have it, you can install the internal/development version from
-[GitHub](https://github.com/) with:
+distributed with CRAN. Simply type the following commands into your
+R-Studio console to install the package from GitHub!
 
 ``` r
 install.packages("remotes") # Lets you install packages from other sources than CRAN
-remotes::install_github("BBieri/WP6RTools", auth_token = "YOUR_AUTH_TOKEN")
+remotes::install_github("BBieri/WP6RTools")
 ```
 
 ## OECD themes
