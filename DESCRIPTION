@@ -21,7 +21,8 @@ Imports:
     extrafont,
     countrycode,
     rvest,
-    anytime
+    anytime,
+    stringi
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

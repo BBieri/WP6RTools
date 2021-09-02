@@ -98,10 +98,12 @@ oecd_member_metrics <- function() {
 #' @export
 oecd_secretary <- function() {
   # Step 1: Scrape
-  oecd <- scrapeoecdwiki()
+  oecd <- scrapeoecdwiki()[[5]]
+  # Convert to ascii encoding
+  oecd$`Time served` <- stringi::stri_enc_toascii(oecd$`Time served`)
   # Step 2: Tidy
-  oecd <- dplyr::as_tibble(oecd[[5]]) %>%
-    tidyr::separate(`Time served`, into = c("Beg", "End"), sep = " – ") %>%
+  oecd <- dplyr::as_tibble(oecd) %>%
+    tidyr::separate(`Time served`, into = c("Beg", "End"), sep = " \032 ") %>%
     dplyr::mutate(Beg = anytime::anydate(Beg),
                   End = anytime::anydate(End),
                   ID = No.) %>%
