@@ -1,7 +1,7 @@
 Package: WP6RTools
 Title: R Tools for WP6 Data Analysis Work
-Date: 2021-08-11
-Version: 0.0.1
+Date: 2021-09-02
+Version: 0.0.2
 Authors@R: 
     person(given = "Bernhard",
            family = "Bieri",
